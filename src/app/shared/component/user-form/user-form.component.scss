@@ -1,24 +1,25 @@
 *{
   box-sizing: border-box;
 }
+
 .form{
-  &-header{
-    font-size: 20px;
+  &__row{
+    margin-bottom: 30px;
   }
-  &-field{
-    margin: 30px 0;
-  }
-  &-field-labels{
+
+  &__title{
     font-size: 16px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
   }
-  &-field-error{
+
+  &__error{
     font-size: 13px;
     color: red;
   }
-  &-field-input {
+
+  &__input {
     font-size: 14px;
     padding: 0 15px;
     width: 1200px;
@@ -27,18 +28,35 @@
     border-radius: 5px;
     outline-color: #007BFF;
     background-color: rgb(255, 255, 255);
+
+    &::placeholder{
+      color: #a9a9a9;
+    }
   }
 }
-.save-button{
-  margin: 20px 30px 20px 5px;
+.button{
+  height: 40px;
+  width: fit-content;
+  margin-top: 20px;
   padding: 10px 25px;
   font-size: 16px;
   background-color: #28A745;
-  border: 1px solid #28A745;
+  border: none;
   border-radius: 5px;
   color: #FFFFFF;
+
   &:hover{
     cursor: pointer;
+    background-color: #0d9327;
   }
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

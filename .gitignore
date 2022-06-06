@@ -28,13 +28,7 @@ chrome-profiler-events*.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-!.vscode/*.code-snippets
-
-# Local History for Visual Studio Code
-.history/
-
-# Built Visual Studio Code Extensions
-*.vsix
+.history/*
 
 # misc
 /.angular/cache
@@ -50,3 +44,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+/documentation/

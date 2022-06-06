@@ -1,0 +1,22 @@
+.header {
+  height: 80px !important;
+  margin-bottom: 40px;
+
+  &__btn{
+    font-family: Verdana, sans-serif;
+    height: 40px;
+    width: fit-content;
+    margin: 20px 30px 20px 5px;
+    padding: 10px 25px;
+    font-size: 18px;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+
+    &:hover{
+      cursor: pointer;
+      background-color: #0166d9;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <button routerLink="/list" class="btn">List</button>
-  <button routerLink="/add" class="btn">Add</button>
+  <app-header *ngIf="showHeader"></app-header>
   <router-outlet></router-outlet>
 </div>
+

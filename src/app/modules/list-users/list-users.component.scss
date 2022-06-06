@@ -1,19 +1,22 @@
 *{
   box-sizing: border-box;
 }
-table {
+.mat-table {
   width: 100%;
 }
 .btn{
   border: none;
   background-color: white;
+
+  &_edit{
+    color: #EFA863;
+  }
+
+  &_delete{
+    color: red;
+  }
+
   &:hover{
     cursor: pointer;
   }
-}
-.edit-button{
-  color: #EFA863;
-}
-.delete-button{
-  color: red;
 }

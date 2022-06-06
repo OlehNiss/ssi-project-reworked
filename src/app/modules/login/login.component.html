@@ -1,0 +1,71 @@
+<div class="login">
+  <h1 class="login__header">Login</h1>
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="login()"
+    #lgForm='ngForm'
+    class="login__form"
+  >
+    <div class="login__row">
+      <span class="login__title">User Name</span>
+      <input
+        formControlName="userName"
+        class="login__input"
+        type="text"
+      >
+      <ng-container *ngIf="loginForm.controls['userName'].invalid && (loginForm.controls['userName'].touched || lgForm.submitted)">
+        <small
+          *ngIf="loginForm.controls['userName'].hasError('required')"
+          class="login__error-message"
+        >
+          Field can't be empty
+        </small>
+        <span
+          *ngIf="loginForm.controls['userName'].hasError('minLength')"
+          class="login__error-message"
+        >
+          User Name is too short
+        </span>
+      </ng-container>
+    </div>
+    <div class="login__row">
+      <span class="login__title">Password</span>
+      <input
+        formControlName="password"
+        class="login__input"
+        type="text"
+      >
+      <div
+        *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].touched || lgForm.submitted)"
+        class="login__error-message"
+      >
+        <span
+          *ngIf="loginForm.controls['password'].hasError('required')"
+          class="login__error-message"
+        >
+          Field can't be empty
+        </span>
+        <span
+          *ngIf="loginForm.controls['password'].hasError('pattern')"
+          class="login__error-message"
+        >
+          Invalid password
+        </span>
+      </div>
+    </div>
+
+    <button
+      class="login__btn"
+      type="submit"
+    >
+      Log in
+    </button>
+
+    <div
+      *ngIf="loginForm.errors?.['wrongCredentials']"
+      class="login__wrong-credentials"
+    >
+      <span class="login__wrong-credentials">Incorrect userName or password!</span>
+    </div>
+  </form>
+</div>
