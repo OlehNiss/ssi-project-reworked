@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable, of} from "rxjs";
+import {BehaviorSubject, Observable, of, take} from "rxjs";
 import {ILogin} from "../models/login.interface";
 import {Router} from "@angular/router";
 
-const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
+const fakeJwtToken = 'fake-jwt-token';
 const adminData = {
   userName: 'admin123',
   password: 'qwerty1$'
@@ -13,22 +13,37 @@ const adminData = {
   providedIn: 'root'
 })
 export class LoginService {
-  public user = new BehaviorSubject<ILogin | null>(null);
+  public jwtToken = new BehaviorSubject<string | null>(null);
 
   constructor(private router: Router) { }
 
+  public get getJwtToken(): string | null {
+    let token = null;
+    this.jwtToken.pipe(take(1)).subscribe(jwt => token = jwt )
+    return token;
+  }
+
+  public autoLogin (): void {
+    const jwtToken = JSON.parse(localStorage.getItem('jwtToken')!);
+
+    if(jwtToken)
+    {
+      this.jwtToken.next(jwtToken);
+    } else return
+  }
+
   public login (formData: ILogin): Observable<string | null> {
     if (formData.userName === adminData.userName && formData.password === adminData.password) {
-      this.user.next(formData);
-      localStorage.setItem('jwtToken', JSON.stringify(jwtToken));
+      this.jwtToken.next(fakeJwtToken);
+      localStorage.setItem('jwtToken', JSON.stringify(fakeJwtToken));
 
-      return of(jwtToken);
+      return of(fakeJwtToken);
     } else return of(null);
   };
 
   public logout (): void {
     localStorage.removeItem('jwtToken');
-    this.user.next(null);
-    this.router.navigate(['/login'])
+    this.jwtToken.next(null);
+    this.router.navigate(['/login']);
   }
 }

@@ -1,5 +1,8 @@
 <div class="header">
-  <button [routerLink]="['list']" class="header__btn">List</button>
-  <button [routerLink]="['add']" class="header__btn">Add</button>
-  <button (click)="onSubmitLogout()" class="header__btn">Logout</button>
+  <div class="header__group">
+    <button [routerLink]="['list']" class="header__btn">List</button>
+    <button [routerLink]="['add']" class="header__btn">Add</button>
+  </div>
+
+  <button (click)="onSubmitLogout()" class="header__btn header__btn_logout">Logout</button>
 </div>

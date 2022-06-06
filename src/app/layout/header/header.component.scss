@@ -1,22 +1,38 @@
 .header {
-  height: 80px !important;
+  height: 90px !important;
   margin-bottom: 40px;
+  background-color: #007BFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  &__group{
+    display: flex;
+    flex-direction: row;
+  }
 
   &__btn{
     font-family: Verdana, sans-serif;
-    height: 40px;
+    height: 50px;
     width: fit-content;
-    margin: 20px 30px 20px 5px;
-    padding: 10px 25px;
+    margin: 20px 30px 20px 20px;
+    padding: 8px 25px 12px 25px;
     font-size: 18px;
     background-color: #007BFF;
-    border: none;
+    //border: none;
     border-radius: 5px;
     color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+
+    &_logout{
+      border: 1px solid #FFFFFF;
+    }
 
     &:hover{
       cursor: pointer;
-      background-color: #0166d9;
+      background-color: #025bb9;
     }
   }
 }
