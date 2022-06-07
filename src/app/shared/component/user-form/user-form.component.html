@@ -1,21 +1,22 @@
-<form [formGroup]="formData" (ngSubmit)="submitForm()" >
+<form [formGroup]="formData" (ngSubmit)="submitForm()" #userForm=ngForm>
   <div class="form__row">
     <div class="form__title">
-      <label>First Name</label>
-      <span
-        *ngIf="this.formData.controls['firstName'].hasError('required') && this.formData.controls['firstName'].touched"
+      <span>First Name</span>
+      <small
+        *ngIf="formData.controls['firstName'].hasError('required') && formData.controls['firstName'].touched"
         class="form__error"
       >
         Field can't be empty
-      </span>
-      <span
-        *ngIf="this.formData.controls['firstName'].hasError('minlength')"
+      </small>
+      <small
+        *ngIf="formData.controls['firstName'].hasError('minlength')"
         class="form__error"
       >
         Fist Name is too short
-      </span>
+      </small>
     </div>
     <input
+      [ngStyle]="{'border-color': formData.controls['firstName'].invalid && (userForm.submitted || formData.controls['firstName'].touched) ? '#F60606': '#C4C4C4'}"
       formControlName="firstName"
       class="form__input"
       type="text"
@@ -25,21 +26,22 @@
 
   <div class="form__row">
     <div class="form__title">
-      <label>Last Name</label>
-      <span
-        *ngIf="this.formData.controls['lastName'].hasError('required') && this.formData.controls['lastName'].touched"
+      <span>Last Name</span>
+      <small
+        *ngIf="formData.controls['lastName'].hasError('required') && formData.controls['lastName'].touched"
         class="form__error"
       >
         Field can't be empty
-      </span>
-      <span
-        *ngIf="this.formData.controls['lastName'].hasError('minlength')"
+      </small>
+      <small
+        *ngIf="formData.controls['lastName'].hasError('minlength')"
         class="form__error"
       >
         Last Name is too short
-      </span>
+      </small>
     </div>
     <input
+      [ngStyle]="{'border-color': formData.controls['lastName'].invalid && (userForm.submitted || formData.controls['lastName'].touched) ? '#F60606': '#C4C4C4'}"
       formControlName="lastName"
       class="form__input"
       type="text"
@@ -49,21 +51,22 @@
 
   <div class="form__row">
     <div class="form__title">
-      <label>Email</label>
-      <span
-        *ngIf="this.formData.controls['email'].hasError('required') && this.formData.controls['email'].touched"
+      <span>Email</span>
+      <small
+        *ngIf="formData.controls['email'].hasError('required') && formData.controls['email'].touched"
         class="form__error"
       >
         Field can't be empty
-      </span>
-      <span
-        *ngIf="this.formData.controls['email'].hasError('email') || this.formData.controls['email'].hasError('pattern')"
+      </small>
+      <small
+        *ngIf="formData.controls['email'].hasError('email') || formData.controls['email'].hasError('pattern')"
         class="form__error"
       >
         Invalid email
-      </span>
+      </small>
     </div>
     <input
+      [ngStyle]="{'border-color': formData.controls['email'].invalid && (userForm.submitted || formData.controls['email'].touched || formData.controls['email'].dirty) ? '#F60606': '#C4C4C4'}"
       formControlName="email"
       class="form__input"
       type="email"
@@ -73,21 +76,22 @@
 
   <div class="form__row">
     <div class="form__title">
-      <label>Phone</label>
-      <span
-        *ngIf="this.formData.controls['phone'].hasError('required') && this.formData.controls['phone'].touched"
+      <span>Phone</span>
+      <small
+        *ngIf="formData.controls['phone'].hasError('required') && formData.controls['phone'].touched"
         class="form__error"
       >
         Field can't be empty
-      </span>
-      <span
-        *ngIf="this.formData.controls['phone'].hasError('minlength') || this.formData.controls['phone'].hasError('pattern')"
+      </small>
+      <small
+        *ngIf="formData.controls['phone'].hasError('minlength') || formData.controls['phone'].hasError('pattern')"
         class="form__error"
       >
         Phone must have view like: +380 xx xxx xx xx and length of 12 numbers
-      </span>
+      </small>
     </div>
     <input
+      [ngStyle]="{'border-color': formData.controls['phone'].invalid && (userForm.submitted || formData.controls['phone'].touched  || formData.controls['phone'].dirty) ? '#F60606': '#C4C4C4'}"
       formControlName="phone"
       class="form__input"
       type="text"
