@@ -20,15 +20,15 @@ import {RouterModule} from "@angular/router";
     CommonModule,
     ListUsersRoutingModule,
 
+    FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
-    MatPaginatorModule,
     MatTableModule,
     MatIconModule,
     MatTooltipModule,
-    FormsModule,
-    ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatPaginatorModule
   ]
 })
 export class ListUsersModule { }
