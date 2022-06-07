@@ -84,14 +84,14 @@
         *ngIf="this.formData.controls['phone'].hasError('minlength') || this.formData.controls['phone'].hasError('pattern')"
         class="form__error"
       >
-        Phone must have view like - 380 xx xxx xx xx and length of 12 numbers
+        Phone must have view like: +380 xx xxx xx xx and length of 12 numbers
       </span>
     </div>
     <input
       formControlName="phone"
       class="form__input"
       type="text"
-      placeholder="38(XXX) XXX XX XX"
+      placeholder="+38(XXX) XXX XX XX"
     >
   </div>
 

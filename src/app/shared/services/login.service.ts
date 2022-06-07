@@ -3,8 +3,8 @@ import {BehaviorSubject, Observable, of, take} from "rxjs";
 import {ILogin} from "../models/login.interface";
 import {Router} from "@angular/router";
 
-const fakeJwtToken = 'fake-jwt-token';
-const adminData = {
+const fakeJwtToken: string = 'fake-jwt-token';
+const adminData: ILogin = {
   userName: 'admin123',
   password: 'qwerty1$'
 }
